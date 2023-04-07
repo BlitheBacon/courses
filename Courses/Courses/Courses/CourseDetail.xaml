@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Courses.CourseDetail">
+    <ContentPage.Content>
+        <Grid x:Name="MainNavBar" ColumnSpacing="4" RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <BoxView Grid.ColumnSpan="3" Grid.Row="0" BackgroundColor="#159905"/>
+            <StackLayout  Grid.Row="0" Grid.Column="1" Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label x:Name="courseName" TextColor="White" HorizontalOptions="Center"/>
+            </StackLayout>
+            <TableView Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HasUnevenRows="True">
+                <TableSection x:Name="CourseTable">
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="Course" FontSize="Large" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                            <Label Text="Status: " FontSize="18" Padding="7,0,0,0"/>
+                            <Label x:Name="Status" FontSize="16" HorizontalOptions="EndAndExpand" Padding="0,0,20,0"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                            <Label Text="Start Date: " FontSize="18" Padding="7,0,0,0"/>
+                            <Label x:Name="StartDate" FontSize="16" HorizontalOptions="EndAndExpand" Padding="0,0,20,0"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                            <Label Text="End Date: " FontSize="18" Padding="7,0,0,0"/>
+                            <Label x:Name="EndDate" FontSize="16" HorizontalOptions="EndAndExpand" Padding="0,0,20,0"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                            <Label Text="Notifcations: " FontSize="18" Padding="7,0,0,0"/>
+                            <Label x:Name="NotificationsEnabled" FontSize="16" HorizontalOptions="EndAndExpand" Padding="0,0,20,0"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="Instructor" FontSize="Large" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                            <Label Text="Name: " FontSize="18" Padding="7,0,0,0"/>
+                            <Label x:Name="InstructorName" FontSize="16" HorizontalOptions="EndAndExpand" Padding="0,0,20,0"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                            <Label Text="Phone: " FontSize="18" Padding="7,0,0,0"/>
+                            <Label x:Name="InstructorPhone" FontSize="16" HorizontalOptions="EndAndExpand" Padding="0,0,20,0"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                            <Label Text="Email: " FontSize="18" Padding="7,0,0,0"/>
+                            <Label x:Name="InstructorEmail" FontSize="16" HorizontalOptions="EndAndExpand" Padding="0,0,20,0"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
+                            <Label Text="Notes" VerticalOptions="Center" FontSize="18" Padding="7,0,0,0"/>
+                            <Button Text="Share" x:Name="shareButton" FontSize="16" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Clicked="ShareButton_Clicked"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell Height="300">
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="Notes" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"/>
+                         </StackLayout>
+                    </ViewCell>
+                </TableSection>  
+            </TableView>
+            <BoxView Grid.Row="3" Grid.ColumnSpan="3" BackgroundColor="#159905"/>
+            <StackLayout Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="3" HorizontalOptions="Center">
+                <Button Text="EDIT COURSE" TextColor="White" Clicked="Edit_Course_Click" BackgroundColor="Transparent"/>
+                <Button Text="DROP COURSE" TextColor="White" Clicked="Drop_Course_Click" BackgroundColor="Transparent"/>
+                <Button Text="ASSESSMENTS" TextColor="White" Clicked="Assessments_Click" BackgroundColor="Transparent"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

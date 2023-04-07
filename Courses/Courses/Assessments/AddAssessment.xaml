@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Courses.AddAssessment">
+    <ContentPage.Content>
+        <Grid x:Name="MainNavBar">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <BoxView Grid.ColumnSpan="3" Grid.Row="0" BackgroundColor="#159905"/>
+            <Label Grid.Row="0" Grid.Column="1" Text="Edit Course" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <TableView Grid.Row="1" Grid.ColumnSpan="3"  Margin="10,0,10,0">
+                <TableSection>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Assessment Name" FontSize="16" VerticalOptions="Center"/>
+                            <Entry x:Name="AssessmentName" Placeholder="Assessment Name" FontSize="14" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Assessment Type" FontSize="16" VerticalOptions="Center"/>
+                            <Picker x:Name="AssessmentType" FontSize="14" Title="Please Select One" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Start Date" FontSize="16" VerticalOptions="Center"/>
+                            <DatePicker x:Name="StartDate" FontSize="14" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="End Date" FontSize="16" VerticalOptions="Center"/>
+                            <DatePicker x:Name="EndDate" FontSize="14" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <SwitchCell Text="Enable Notifications" x:Name="EnableNotifications" OnColor="Gray"/>
+                </TableSection>
+            </TableView>
+            <BoxView Grid.Row="2" Grid.ColumnSpan="3" BackgroundColor="#159905"/>
+            <Button Grid.Row="2" Grid.ColumnSpan="3" Text="ADD ASSESSMENT" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Add_Assessment_Clicked" BackgroundColor="Transparent"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

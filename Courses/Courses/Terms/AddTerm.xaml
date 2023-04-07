@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Courses.AddTerm">
+    <ContentPage.Content>
+        <Grid x:Name="MainNavBar" ColumnSpacing="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <BoxView Grid.ColumnSpan="3" Grid.Row="0" BackgroundColor="#159905"/>
+            <Label Grid.Row="0" Grid.Column="1" Text="Create Term" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <TableView Grid.Row="1" Grid.ColumnSpan="3"  Margin="10,0,10,0">
+                <TableSection>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Term Title" FontSize="16" HorizontalOptions="Start" VerticalOptions="Center"/>
+                            <Entry x:Name="TermTitle" FontSize="14" HorizontalOptions="EndAndExpand" WidthRequest="250" VerticalOptions="Center"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Start Date" FontSize="16" VerticalOptions="Center"/>
+                            <DatePicker x:Name="startDate" FontSize="14" HorizontalOptions="EndAndExpand" WidthRequest="250"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="End Date" FontSize="16" VerticalOptions="Center"/>
+                            <DatePicker x:Name="endDate" FontSize="14" HorizontalOptions="EndAndExpand" WidthRequest="250"/>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+            </TableView>
+            <BoxView Grid.ColumnSpan="3" Grid.Row="2" BackgroundColor="#159905"/>
+            <Button Grid.ColumnSpan="3" Grid.Row="2" Text="Add Term" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" BackgroundColor="Transparent" Clicked="Button_Clicked"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

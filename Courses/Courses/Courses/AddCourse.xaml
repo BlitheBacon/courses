@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Courses.AddCourse">
+    <ContentPage.Content>
+        <Grid x:Name="MainNavBar" ColumnSpacing="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <BoxView Grid.ColumnSpan="3" Grid.Row="0" BackgroundColor="#159905"/>
+            <Label Grid.Row="0" Grid.Column="1" Text="Add Course" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <TableView Grid.Row="1" Grid.ColumnSpan="3"  Margin="10,0,10,0" HasUnevenRows="True">
+                <TableSection>
+                    <ViewCell>
+                        <Label Text="Course" FontSize="Medium" TextColor="#91AA33" HorizontalOptions="Start" Padding="0,0,0,0"/>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                            <Label Text="Name" FontSize="16" HorizontalOptions="Start" VerticalOptions="Center"/>
+                            <Entry x:Name="CourseName" FontSize="14" HorizontalOptions="EndAndExpand" WidthRequest="250" VerticalOptions="Center"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                            <Label Text="Status" FontSize="16" HorizontalOptions="Start" VerticalOptions="Center"/>
+                            <Picker x:Name="CourseStatus" Title="Select" FontSize="14" HorizontalOptions="EndAndExpand" WidthRequest="250" VerticalOptions="Center">
+                                <Picker.Items>
+                                    <x:String>In-Progress</x:String>
+                                    <x:String>Completed</x:String>
+                                    <x:String>Dropped</x:String>
+                                    <x:String>To Take</x:String>
+                                </Picker.Items>
+                            </Picker>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                            <Label Text="Start Date" FontSize="16" HorizontalOptions="Start" VerticalOptions="Center"/>
+                            <DatePicker x:Name="StartDate" FontSize="14" HorizontalOptions="EndAndExpand" WidthRequest="250" VerticalOptions="Center"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                            <Label Text="End Date" FontSize="16" HorizontalOptions="Start" VerticalOptions="Center"/>
+                            <DatePicker x:Name="EndDate" FontSize="14" HorizontalOptions="EndAndExpand" WidthRequest="250" VerticalOptions="Center"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <SwitchCell Text="Notifications" x:Name="EnableNotifications" OnColor="Gray"/>
+                    <ViewCell>
+                        <Label Text="Instructor" FontSize="Medium" TextColor="#91AA33" HorizontalOptions="Start" Padding="0,0,0,0"/>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                            <Label Text="Name" FontSize="16" HorizontalOptions="Start" VerticalOptions="Center"/>
+                            <Entry x:Name="InstructorName" FontSize="14" HorizontalOptions="EndAndExpand" WidthRequest="250"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                            <Label Text="Phone" FontSize="16" HorizontalOptions="Start" VerticalOptions="Center"/>
+                            <Entry x:Name="InstructorPhone" FontSize="14" HorizontalOptions="EndAndExpand" WidthRequest="250" VerticalOptions="Center"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                            <Label Text="Email" FontSize="16" HorizontalOptions="Start" VerticalOptions="Center"/>
+                            <Entry x:Name="InstructorEmail" FontSize="14" HorizontalOptions="EndAndExpand" WidthRequest="250"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <Label Text="Notes" FontSize="Medium" TextColor="#91AA33" HorizontalOptions="Start" Padding="0,0,0,0"/>
+                    </ViewCell>
+                    <ViewCell Height="300" >
+                        <StackLayout Orientation="Horizontal">
+                            <Editor x:Name="Notes" FontSize="14"  HorizontalOptions="StartAndExpand" VerticalOptions="Start" WidthRequest="350" HeightRequest="250"/>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+            </TableView>
+            <BoxView Grid.Row="2" Grid.ColumnSpan="3" BackgroundColor="#159905"/>
+            <Button Grid.Row="2" Grid.ColumnSpan="3" Text="Save" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked" BackgroundColor="Transparent"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
