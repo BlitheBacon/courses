@@ -2,7 +2,6 @@
 
 using System;
 using System.Collections.ObjectModel;
-using System.Linq;
 
 using Xamarin.Forms;
 using Plugin.LocalNotifications;
@@ -73,13 +72,6 @@ namespace Courses
         // Data loaded upon the page appearing
         protected override async void OnAppearing()
         {
-            // Reset the input data to prepopulated values
-            /*
-            await _conn.DropTableAsync<Term>();
-            await _conn.DropTableAsync<Course>();
-            await _conn.DropTableAsync<Assessment>();
-            */
-
             // Creates the tables if non exist
             await _conn.CreateTableAsync<Term>();
             await _conn.CreateTableAsync<Course>();
@@ -89,69 +81,6 @@ namespace Courses
             var termList       = await _conn.Table<Term>().ToListAsync();
             var courseList     = await _conn.Table<Course>().ToListAsync();
             var assessmentList = await _conn.Table<Assessment>().ToListAsync();
-            
-            // If Term contains no entries, populate all lists data at startup
-            if(!termList.Any())
-            {
-                // Term Data population
-                Term term_mockData = new Term
-                {
-                    Title     = "Term 1",
-                    StartDate = new DateTime(DateTime.Today.Ticks),                         // Mock start set to current date
-                    EndDate   = new DateTime(DateTime.Today.AddMonths(6).Ticks)             // Mock end set to 6 months from start
-                };
-
-                // Inserts Mock Data and appends to the Term List
-                await _conn.InsertAsync(term_mockData);
-                termList.Add(term_mockData);
-
-                // Course Data population
-                Course course_mockData = new Course
-                {
-                    CourseName          = "C971 — Mobile Application Development",
-                    StartDate           = new DateTime(DateTime.Today.Ticks),              // Mock start set to current date
-                    EndDate             = new DateTime(DateTime.Today.AddMonths(6).Ticks), // Mock end set to 6 months from start
-                    Status              = "In-Progress",
-                    InstructorName      = "Josh Hagins",
-                    InstructorPhone     = "803-414-4529",
-                    InstructorEmail     = "jhagins@wgu.edu",
-                    NotificationEnabled = 1,                                               // Notifications set to 1 (true)
-                    Notes               = "Class C971\n\nCreating a mobile app with Xamarin Forms in C#.",
-                    Term                = term_mockData.Id                                 // Weak Relationship to Term
-                };
-
-                //Inserts the Mock Course data
-                await _conn.InsertAsync(course_mockData);
-
-                // Objective Assessment Data population
-                Assessment objAssessment_mockData = new Assessment
-                {
-                    Title               = "Objective Assessment",
-                    StartDate           = course_mockData.StartDate,
-                    EndDate             = course_mockData.EndDate,
-                    Course              = course_mockData.Id,                      // Weak Relationship to Course
-                    Type                = "Objective",
-                    NotificationEnabled = 1                                        // Notifications set to 1 (true)
-                };
-
-                // Inserts the Mock Object Assessment data
-                await _conn.InsertAsync(objAssessment_mockData);
-
-                // Performance Assessment Data population
-                Assessment perfAssessment_mockData = new Assessment
-                {
-                    Title               = "Performance Assessment",
-                    StartDate           = course_mockData.StartDate,
-                    EndDate             = course_mockData.EndDate,
-                    Course              = course_mockData.Id,                     // Weak Relationship to Course
-                    Type                = "Performance",
-                    NotificationEnabled = 1                                       // Notifications set to 1 (true)
-                };
-
-                // Inserts the Mock Performance Assessment data
-                await _conn.InsertAsync(perfAssessment_mockData);
-                await _conn.CloseAsync();
-            }
 
             // Notification Handlers:
             // If notifications are set to true, iterate through each course and each assessment
